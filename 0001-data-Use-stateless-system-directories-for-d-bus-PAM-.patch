@@ -1,28 +1,18 @@
-From d24f7593f021c8048d754be8def14abbe5ea27a4 Mon Sep 17 00:00:00 2001
-From: Ikey Doherty <michael.i.doherty@intel.com>
-Date: Mon, 3 Apr 2017 15:34:03 +0100
+From 54deef15d881cb2ddadacda798dc713dbeef83a4 Mon Sep 17 00:00:00 2001
+From: Francisco Boni <boboniboni@gmail.com>
+Date: Wed, 31 Mar 2021 11:50:21 -0300
 Subject: [PATCH] data: Use stateless system directories for d-bus, PAM and
  default rules
 
-Signed-off-by: Ikey Doherty <michael.i.doherty@intel.com>
 ---
- data/Makefile.am              | 4 ++--
+ data/Makefile.am              | 2 +-
  src/polkitbackend/Makefile.am | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/data/Makefile.am b/data/Makefile.am
-index fe0f1d5..200274a 100644
+index e805260..c29f296 100644
 --- a/data/Makefile.am
 +++ b/data/Makefile.am
-@@ -15,7 +15,7 @@ $(service_DATA): $(service_in_files) Makefile
- 
- # ----------------------------------------------------------------------------------------------------
- 
--dbusconfdir = $(sysconfdir)/dbus-1/system.d
-+dbusconfdir = $(datadir)/dbus-1/system.d
- dbusconf_in_files = org.freedesktop.PolicyKit1.conf.in
- dbusconf_DATA = $(dbusconf_in_files:.conf.in=.conf)
- 
 @@ -25,7 +25,7 @@ $(dbusconf_DATA): $(dbusconf_in_files) Makefile
  # ----------------------------------------------------------------------------------------------------
  
@@ -33,10 +23,10 @@ index fe0f1d5..200274a 100644
  endif
  
 diff --git a/src/polkitbackend/Makefile.am b/src/polkitbackend/Makefile.am
-index 5da7bdf..b88c711 100644
+index ae01965..56ac8a1 100644
 --- a/src/polkitbackend/Makefile.am
 +++ b/src/polkitbackend/Makefile.am
-@@ -64,7 +64,7 @@ libpolkit_backend_1_la_LIBADD =                               		\
+@@ -65,7 +65,7 @@ libpolkit_backend_1_la_LIBADD =                               		\
  	$(LIBJS_LIBS)							\
          $(NULL)
  
@@ -46,5 +36,5 @@ index 5da7bdf..b88c711 100644
  
  # ----------------------------------------------------------------------------------------------------
 -- 
-2.12.2
+2.30.2
 
